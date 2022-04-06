@@ -12,20 +12,15 @@ import br.edu.utfpr.dv.sireata.model.Usuario;
 
 public class EditarSenhaWindow extends EditarWindow {
 	
-	private final PasswordField tfSenhaAtual;
-	private final PasswordField tfNovaSenha;
-	private final PasswordField tfConfirmacaoSenha;
+	private final PasswordField tfSenhaAtual = new PasswordField("Senha atual:");
+	private final PasswordField tfNovaSenha = new PasswordField("Nova senha:");
+	private final PasswordField tfConfirmacaoSenha = new PasswordField("Confirmação de senha:");
 	
 	public EditarSenhaWindow(){
 		super("Alterar Senha", null);
 		
-		this.tfSenhaAtual = new PasswordField("Senha Atual");
 		this.tfSenhaAtual.setWidth("400px");
-		
-		this.tfNovaSenha = new PasswordField("Nova Senha");
 		this.tfNovaSenha.setWidth("400px");
-		
-		this.tfConfirmacaoSenha = new PasswordField("Confirmação de Senha");
 		this.tfConfirmacaoSenha.setWidth("400px");
 		
 		this.adicionarCampo(this.tfSenhaAtual);
@@ -57,5 +52,4 @@ public class EditarSenhaWindow extends EditarWindow {
 			Notification.show("Alterar Senha", e.getMessage(), Notification.Type.ERROR_MESSAGE);
 		}
 	}
-
 }
