@@ -34,13 +34,18 @@ public class AtaParticipanteBO {
 	}
 	
 	public void validarDados(AtaParticipante participante) throws Exception{
-		if((participante.getParticipante() == null) || (participante.getParticipante().getIdUsuario() == 0)){
+		final boolean isParticipante =  participante.getParticipante() == null;
+		final boolean isUsuario = participante.getParticipante().getIdUsuario() == 0;
+		final boolean isPresente = participante.isPresente();
+		final boolean isEmptyMotivo = participante.getMotivo().trim().isEmpty();
+
+		if((isParticipante) || (isUsuario)){
 			throw new Exception("Informe o usuário.");
 		}
-		if((!participante.isPresente()) && (participante.getMotivo().trim().isEmpty())){
+		if((!isPresente) && (isEmptyMotivo)){
 			throw new Exception("Informe o motivo da ausência.");
 		}
-		if(participante.isPresente()){
+		if(isPresente){
 			participante.setMotivo("");
 		}
 	}
