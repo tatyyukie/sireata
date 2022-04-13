@@ -63,22 +63,6 @@ public class UsuarioBO {
 		}
 	}
 	
-	private boolean loginEAluno(String login){
-		if(login.toLowerCase().startsWith("a")){
-			login = login.substring(1);
-			
-			try{
-				Integer.parseInt(login);
-				
-				return true;
-			}catch(Exception e){
-				return false;
-			}
-		}
-		
-		return false;
-	}
-	
 	public Usuario buscarPorLogin(String login) throws Exception{
 		try {
 			UsuarioDAO dao = new UsuarioDAO();
